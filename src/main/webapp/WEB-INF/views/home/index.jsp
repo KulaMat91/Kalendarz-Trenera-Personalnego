@@ -20,7 +20,7 @@
                 <div class="card-body"><p class="text-white m-0">Zapisz się na nasze pozostałe wydarzenia!</p></div>
             </div>
             <!-- Content Row-->
- <c:forEach items="${eventModel}" var="title">
+<%-- <c:forEach items="${eventModel}" var="title">--%>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
@@ -46,14 +46,14 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
-                            <h2 class="card-title"></h2>
+                            <h2 class="card-title">Fit Sylwetka</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
             </div>
- </c:forEach>
+<%-- </c:forEach>--%>
         </div>
 
 <%--        <!-- Footer-->--%>
