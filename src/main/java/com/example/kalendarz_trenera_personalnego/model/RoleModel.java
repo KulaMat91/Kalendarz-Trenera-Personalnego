@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "role_model")
 @AllArgsConstructor
@@ -20,5 +22,8 @@ public class RoleModel {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleModel")
+    List<UserModel> userModelList = new ArrayList<>();
 
 }

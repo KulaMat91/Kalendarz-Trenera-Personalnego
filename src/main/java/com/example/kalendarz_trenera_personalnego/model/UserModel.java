@@ -1,13 +1,12 @@
 package com.example.kalendarz_trenera_personalnego.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "user_model")
 @AllArgsConstructor
@@ -31,13 +30,22 @@ public class UserModel {
     @Column(name = "email")
     private String email;
 
-    @Column (name = "phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @ManyToOne
-    private EventModel eventModel;
+    @JoinColumn(name = "role_id")
+    private RoleModel roleModel;
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_event",
+            joinColumns = {@JoinColumn(name = "user_model_id")},
+            inverseJoinColumns = {@JoinColumn(name = "event_model_id")}
+    )
+    private List<EventModel> eventModelList = new ArrayList<>();
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userModel")
+    private List<OpinionModel> opinionModelList = new ArrayList<>();
 
 }

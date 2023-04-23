@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.*;
@@ -25,16 +26,21 @@ public class EventModel {
     private String description;
 
     @Column(name = "add_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date addDate;
 
     @Column(name = "event_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date eventDate;
 
     @Column(name = "number_of_slots")
     private Integer numberOfSlots;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventModel")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "eventModelList")
     private List<UserModel> userList = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventModel")
+    private List<OpinionModel> opinionModelList = new ArrayList<>();
 
 
 }
