@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity(name = "event_model")
 @AllArgsConstructor
@@ -34,9 +33,8 @@ public class EventModel {
     @Column(name = "number_of_slots")
     private Integer numberOfSlots;
 
-
-    @OneToMany(mappedBy = "eventModel")
-    private List<UserModel> userList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventModel")
+    private List<UserModel> userList = new ArrayList<>();
 
 
 }

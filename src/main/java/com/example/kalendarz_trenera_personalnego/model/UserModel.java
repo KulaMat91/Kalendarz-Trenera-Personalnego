@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 
 @Entity(name = "user_model")
 @AllArgsConstructor
@@ -18,12 +20,14 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Min(8)
     @Column(name = "login")
     private String login;
 
     @Column(name = "password")
     private String password;
 
+    @Email
     @Column(name = "email")
     private String email;
 
@@ -31,7 +35,6 @@ public class UserModel {
     private String phoneNumber;
 
     @ManyToOne
-    @JoinColumn(name = "eventModel_id")
     private EventModel eventModel;
 
 
