@@ -48,4 +48,8 @@ public class UserModel {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userModel")
     private List<OpinionModel> opinionModelList = new ArrayList<>();
 
+    @OneToOne(cascade = CascadeType.ALL) // mappedBy = "userModel" ?
+    private PersonalDataModel personalDataModel;
+
+
 }
