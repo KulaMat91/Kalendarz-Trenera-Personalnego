@@ -7,8 +7,6 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import java.util.Date;
 
 @Entity(name = "opinion_model")
