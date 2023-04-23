@@ -1,4 +1,7 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="now" class="java.util.Date"/>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../dynamic/header.jspf"%>
         <!-- Page Content-->
         <div class="container px-4 px-lg-5">
@@ -9,7 +12,7 @@
                     <h1 class="font-weight-light">Najnowsze wydarzenie</h1>
                     <p>Tabata to bardzo intensywny trening interwałowy, który polega na wykonywaniu ćwiczeń o wysokiej i średniej intensywności.
                         Ćwiczenia wykonywane są tylko z masą własnego ciała, co sprawia, że jest on intensywny, ale łatwy do wykonania. Z pewnością każdy poradzi sobie z tym specjalnie przygotowanym zestawem ćwiczeń.</p>
-                    <a class="btn btn-primary" href="<c:">Zapisz się!</a>
+                    <a class="btn btn-primary" href="">Zapisz się!</a>
                 </div>
             </div>
             <!-- Call to Action-->
