@@ -26,13 +26,6 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
-    @Email
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleModel roleModel;
@@ -47,5 +40,9 @@ public class UserModel {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userModel")
     private List<OpinionModel> opinionModelList = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL) // mappedBy = "userModel" ?
+    private PersonalDataModel personalDataModel;
+
 
 }
