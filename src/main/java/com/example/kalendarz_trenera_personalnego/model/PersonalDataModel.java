@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.text.DateFormat;
 
 @Entity
@@ -25,6 +26,10 @@ public class PersonalDataModel {
 
     @Column (name = "surname")
     private String surname;
+
+    @Email
+    @Column(name = "email")
+    private String email;
 
     @Column (name = "phone_number")
     private String phoneNumber;
