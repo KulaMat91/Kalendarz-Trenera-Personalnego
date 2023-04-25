@@ -15,4 +15,14 @@ public class AuthController {
     public String getRegister() {
         return "auth/register";
     }
+
+    @GetMapping("/shop")
+    public String getShop() {
+        return "auth/shop";
+    }
+
+    @GetMapping("/contact")
+    public String getContact() {
+        return "auth/contact";
+    }
 }
