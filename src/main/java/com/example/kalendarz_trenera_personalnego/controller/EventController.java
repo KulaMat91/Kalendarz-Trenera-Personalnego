@@ -17,14 +17,14 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
 
-//    @GetMapping("/event")
-//    public String getEventList(Model model) {
-//        List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
-//        model.addAttribute("eventModel", eventModelList);
-//        return "home/index";
-//        //TODO
-//        // jaka ma byc strona gdzie wyswitlaja sie wszystkie wydarzenia
-//    }
+    @GetMapping("/event")
+    public String getEventList(Model model) {
+        List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
+        model.addAttribute("eventModel", eventModelList);
+        return "home/index";
+        //TODO
+        // jaka ma byc strona gdzie wyswitlaja sie wszystkie wydarzenia
+    }
 
     @GetMapping("/addEvent")
     public String getAddEvent() {

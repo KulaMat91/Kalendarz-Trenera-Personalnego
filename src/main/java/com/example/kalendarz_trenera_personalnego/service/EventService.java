@@ -5,6 +5,7 @@ import com.example.kalendarz_trenera_personalnego.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -14,9 +15,11 @@ public class EventService {
     private final EventRepository repo;
 
 
-//    public List<EventModel> getEventListOrderByAddDate() {
-//        return repo.findAllByAddDateOrderByAddDateDesc();
-//    }
+    public List<EventModel> getEventListOrderByAddDate() {
+        List<EventModel> eventList = repo.findAll();
+        eventList.sort((EventModel e1, EventModel e2) -> e2.getAddDate().compareTo(e1.getAddDate()));
+        return eventList;
+    }
 
     public void addEvent(EventModel eventModel) {
         repo.save(eventModel);
