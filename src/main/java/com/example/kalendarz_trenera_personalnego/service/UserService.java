@@ -29,4 +29,7 @@ public class UserService {
         repo.deleteById(id);
     }
 
+    public void saveEditUser(UserModel editUserModel) {
+        repo.save(editUserModel);
+    }
 }

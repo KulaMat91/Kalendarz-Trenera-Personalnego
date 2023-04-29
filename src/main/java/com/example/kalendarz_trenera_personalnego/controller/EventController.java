@@ -22,15 +22,13 @@ public class EventController {
         List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
         model.addAttribute("eventModel", eventModelList);
         return "home/index";
-        //TODO
-        // jaka ma byc strona gdzie wyswitlaja sie wszystkie wydarzenia
+
     }
 
     @GetMapping("/addEvent")
     public String getAddEvent() {
         return "/events/addNewEvent";
-        //TODO
-        // Stworzyc strone
+
     }
 
     @PostMapping("/addEvent")
