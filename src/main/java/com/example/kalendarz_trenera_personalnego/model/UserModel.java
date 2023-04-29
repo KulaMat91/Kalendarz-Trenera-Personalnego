@@ -1,10 +1,12 @@
 package com.example.kalendarz_trenera_personalnego.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,26 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
+    @Column (name = "name")
+    private String name;
+
+    @Column (name = "surname")
+    private String surname;
+
+    @Email
+    @Column(name = "email")
+    private String email;
+
+    @Column (name = "phone_number")
+    private String phoneNumber;
+
+    @Column (name = "gender")
+    private String gender;
+
+    @Column (name = "birthday_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private DateFormat birthdayDate;
+
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleModel roleModel;
@@ -41,8 +63,7 @@ public class UserModel {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userModel")
     private List<OpinionModel> opinionModelList = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL) // mappedBy = "userModel" ?
-    private PersonalDataModel personalDataModel;
+
 
 
 }
