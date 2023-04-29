@@ -59,7 +59,7 @@
                                 <label for="operacja" class="col-md-4 col-form-label text-md-right">Płeć </label>
                                 <div class="col-md-6">
                                     <select id="operacja" name="gender" class="form-control" >
-                                        <option value="suma">Wybierz płeć</option>
+                                        <option value="" disabled selected hidden>Wybierz płeć</option>
                                         <option value="kobieta">Kobieta</option>
                                         <option value="mężczyzna">Mężczyzna</option>
                                     </select>
