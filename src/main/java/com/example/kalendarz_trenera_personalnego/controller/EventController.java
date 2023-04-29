@@ -17,12 +17,11 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
 
-    @GetMapping("/event")
+    @GetMapping("/eventList")
     public String getEventList(Model model) {
         List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
         model.addAttribute("eventModel", eventModelList);
-        return "home/index";
-
+        return "events/eventsList";
     }
 
     @GetMapping("/addEvent")
@@ -34,7 +33,7 @@ public class EventController {
     @PostMapping("/addEvent")
     public RedirectView postAddEvent(EventModel eventModel) {
         eventService.addEvent(eventModel);
-        return new RedirectView("/events");
+        return new RedirectView("/eventList");
     }
 
     @GetMapping("/editEvent/{id}")
@@ -52,7 +51,7 @@ public class EventController {
     }
 
     @PostMapping("/removeEvent/{id}")
-    public RedirectView removeEvent(@PathVariable("id")Long id) {
+    public RedirectView removeEvent(@PathVariable("id") Long id) {
         eventService.removeEvent(id);
         return new RedirectView("/events");
     }
