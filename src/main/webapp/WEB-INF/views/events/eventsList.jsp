@@ -8,7 +8,7 @@
         <div class="container px-4 px-lg-5">
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><a class="btn btn-primary" href='<c:url value="/events/addNewEvent"/>'>DODAJ NOWE WYDARZENIE!</a></div>
+                <div class="card-body"><a class="btn btn-primary" href='<c:url value="/addEvent"/>'>DODAJ NOWE WYDARZENIE!</a></div>
             </div>
             <!-- Heading Row-->
              <c:forEach items="${eventModel}" var="event">

@@ -26,15 +26,15 @@ public class UserController {
 
     }
 
-    @GetMapping("/addUser")
-    public String getAddUser(){
-        return "auth/register";
-    }
+//    @GetMapping("/register")
+//    public String getAddUser(){
+//        return "auth/register";
+//    }
 
-    @PostMapping("/addUser")
+    @PostMapping("/register")
     public RedirectView postAddUser(UserModel userModel){
         userService.addUser(userModel);
-        return new RedirectView("home/index");
+        return new RedirectView("/");
     }
 
     @GetMapping("/editUser/{id}")

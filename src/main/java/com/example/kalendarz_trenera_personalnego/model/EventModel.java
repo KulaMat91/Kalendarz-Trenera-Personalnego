@@ -1,12 +1,11 @@
 package com.example.kalendarz_trenera_personalnego.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Entity(name = "event_model")
@@ -30,7 +29,7 @@ public class EventModel {
     private Date addDate;
 
     @Column(name = "event_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")  //TODO przesyłanie z godziną?
     private Date eventDate;
 
     @Column(name = "number_of_slots")

@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "user_model")
@@ -21,7 +22,6 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(8)
     @Column(name = "login")
     private String login;
 
@@ -46,11 +46,11 @@ public class UserModel {
 
     @Column (name = "birthday_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private DateFormat birthdayDate;
+    private Date birthdayDate;
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private RoleModel roleModel;
+    private RoleModel roleModel;   //TODO nadawanie defaultowo roli podczas rejestracji
 
     @ManyToMany
     @JoinTable(

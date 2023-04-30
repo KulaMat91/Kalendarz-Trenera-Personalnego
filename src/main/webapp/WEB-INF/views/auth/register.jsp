@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">Rejestracja</div>
                     <div class="card-body">
-                        <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                        <form name="my-form" action='<c:url value="/register"/>' method="post">
                             <div class="form-group row" >
                                 <label for="full_name" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">
@@ -23,7 +23,7 @@
                             <div class="form-group row">
                                 <label for="user_name" class="col-md-4 col-form-label text-md-right">Hasło</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="password" class="form-control" name="password">
+                                    <input type="password" id="password" class="form-control" name="password">
                                 </div>
                             </div>
                             <p></p>
@@ -69,14 +69,12 @@
                             <div class="form-group row"> <!-- Date input -->
                                 <label  for="date" class="col-md-4 col-form-label text-md-right">Data urodzenia</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="date" name="birthdayDate" placeholder="MM/DD/YYY" type="date"/>
+                                    <input class="form-control" id="date" name="birthdayDate" placeholder="MM/DD/YYY" type="datetime-local"/>
                                 </div>
                             </div>
                             <p></p>
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Zarejestruj się!
-                                </button>
+                                <input class="btn btn-warning pull-left mb-2" type="submit" value="Zarejestruj" id="searchButton">
                             </div>
 
                         </form>

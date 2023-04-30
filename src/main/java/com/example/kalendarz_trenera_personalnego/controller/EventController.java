@@ -17,7 +17,7 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
 
-    @GetMapping("/eventList")
+    @GetMapping("/eventsList")
     public String getEventList(Model model) {
         List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
         model.addAttribute("eventModel", eventModelList);
@@ -27,13 +27,12 @@ public class EventController {
     @GetMapping("/addEvent")
     public String getAddEvent() {
         return "/events/addNewEvent";
-
     }
 
     @PostMapping("/addEvent")
     public RedirectView postAddEvent(EventModel eventModel) {
         eventService.addEvent(eventModel);
-        return new RedirectView("/eventList");
+        return new RedirectView("/eventsList");
     }
 
     @GetMapping("/editEvent/{id}")
