@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,5 +36,11 @@ public class EventService {
 
     public void removeEvent(Long id) {
         repo.deleteById(id);
+    }
+
+    public EventModel getFirstEvent(){
+        List<EventModel> eventList = repo.findAll();
+        return eventList.stream().max(Comparator.comparing(EventModel::getAddDate))
+                .orElse(null);
     }
 }

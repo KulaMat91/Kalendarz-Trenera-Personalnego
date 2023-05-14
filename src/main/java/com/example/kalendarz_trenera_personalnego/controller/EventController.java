@@ -24,6 +24,7 @@ public class EventController {
         return "events/eventsList";
     }
 
+
     @GetMapping("/addEvent")
     public String getAddEvent() {
         return "/events/addNewEvent";
@@ -43,16 +44,16 @@ public class EventController {
         //TODO Stworzyc strone
     }
 
-    @PostMapping("/editEvent/{id}")
+    @PostMapping("/addEvent/{id}")
     public RedirectView postEditEvent(@PathVariable("id") Long id, EventModel editEventModel) {
         eventService.saveEditEvent(editEventModel);
-        return new RedirectView("/events");
+        return new RedirectView("/eventsList");
     }
 
-    @PostMapping("/removeEvent/{id}")
+    @PostMapping("/editEvent/{id}")
     public RedirectView removeEvent(@PathVariable("id") Long id) {
         eventService.removeEvent(id);
-        return new RedirectView("/events");
+        return new RedirectView("/eventsList");
     }
 
 

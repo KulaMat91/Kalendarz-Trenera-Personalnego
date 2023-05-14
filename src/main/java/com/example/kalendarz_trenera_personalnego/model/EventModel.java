@@ -10,7 +10,6 @@ import java.util.*;
 
 @Entity(name = "event_model")
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 public class EventModel {
@@ -35,11 +34,20 @@ public class EventModel {
     @Column(name = "number_of_slots")
     private Integer numberOfSlots;
 
+    @Lob
+    private byte[] picture;
+
+
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "eventModelList")
     private List<UserModel> userList = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventModel")
     private List<OpinionModel> opinionModelList = new ArrayList<>();
+
+    public EventModel(){
+        this.addDate = new Date();
+    }
+
 
 
 }

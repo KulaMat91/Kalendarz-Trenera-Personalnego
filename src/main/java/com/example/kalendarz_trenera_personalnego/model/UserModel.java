@@ -48,9 +48,6 @@ public class UserModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdayDate;
 
-    @Column(name= "role")
-    private String role="USER";
-
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private RoleModel roleModel;   //TODO nadawanie defaultowo roli podczas rejestracji
