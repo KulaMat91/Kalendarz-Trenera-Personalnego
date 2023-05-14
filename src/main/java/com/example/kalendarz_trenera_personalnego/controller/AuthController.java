@@ -16,6 +16,11 @@ public class AuthController {
         return "auth/register";
     }
 
+    @GetMapping("/re-register")
+    public String getRegisterAgain() {
+        return "auth/re-register";
+    }
+
     @GetMapping("/shop")
     public String getShop() {
         return "auth/shop";
@@ -25,4 +30,6 @@ public class AuthController {
     public String getContact() {
         return "auth/contact";
     }
+
+
 }

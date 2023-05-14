@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">Dodawanie wydarzenia</div>
                     <div class="card-body">
-                        <form method="post" name="my-form" onsubmit="return validform()" action="'<c:url value="/addEvent"/>'">
+                        <form method="post" name="my-form" onsubmit="return validform()" action='<c:url value="/addEvent"/>'>
                             <div class="form-group row" >
                                 <label for="title" class="col-md-4 col-form-label text-md-right">Tytuł</label>
                                 <div class="col-md-6">
@@ -30,28 +30,34 @@
                             <div class="form-group row" >
                                 <label  for="eventDate" class="col-md-4 col-form-label text-md-right">Data wydarzenia</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="eventDate" name="eventDate" placeholder="MM/DD/YYY" type="date"/>
+                                    <input class="form-control" id="eventDate" name="eventDate" placeholder="MM/DD/YYYY" type="datetime-local"/>
                                 </div>
                             </div>
                             <p></p>
+<%--                            <p></p>--%>
+<%--                            <div class="form-group row" >--%>
+<%--                                <label  for="addDate" class="col-md-4 col-form-label text-md-right">Data dodania</label>--%>
+<%--                                <div class="col-md-6">--%>
+<%--                                    <input class="form-control" id="addDate" name="addDate" placeholder="MM/DD/YYYY" type="date"/>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <p></p>--%>
                             <div class="form-group row">
                                 <label for="numbersOfSlots" class="col-md-4 col-form-label text-md-right">Ilość uczestników</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="numbersOfSlots" class="form-control" name="numbersOfSlots">
+                                    <input type="text" id="numbersOfSlots" class="form-control" name="numberOfSlots">
                                 </div>
                             </div>
-                            <p></p>
-                            <div class="form-group row">
-                                <label for="picture" class="col-md-4 col-form-label text-md-right">Dodaj zdjęcie</label>
-                                <div class="col-md-6">
-                                    <input type="file" id="picture" class="form-control" name="picture" accept="image/jpeg,audio/*,.gif">
-                                </div>
-                            </div>
-                            <p></p>
+<%--                            <p></p>--%>
+<%--                            <div class="form-group row">--%>
+<%--                                <label for="picture" class="col-md-4 col-form-label text-md-right">Dodaj zdjęcie</label>--%>
+<%--                                <div class="col-md-6">--%>
+<%--                                    <input type="file" id="picture" class="form-control" name="picture" accept="image/jpeg,audio/*,.gif">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <p></p>--%>
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Dodaj wydarzenie!
-                                </button>
+                                <input class="btn btn-warning pull-left mb-2" type="submit" value="Dodaj event" id="searchButton">
                             </div>
                         </form>
                     </div>

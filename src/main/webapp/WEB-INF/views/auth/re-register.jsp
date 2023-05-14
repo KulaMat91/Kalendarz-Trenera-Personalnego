@@ -11,13 +11,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Rejestracja</div>
+                    <div class="card-header2"  style="color: red; text-align: center">Podany Login lub E-mail jest zajęty</div>
                     <div class="card-body">
-                        <form name="my-form" action='<c:url value="/register"/>' method="post">
+                        <form name="my-form" action='<c:url value="/re-register"/>' method="post">
                             <div class="form-group row" >
+
                                 <label for="login" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">
                                     <input type="text" id="login" class="form-control" name="login">
-                                    </div>
+                                </div>
                             </div>
                             <p></p>
                             <div class="form-group row">

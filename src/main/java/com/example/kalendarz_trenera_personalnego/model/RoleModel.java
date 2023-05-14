@@ -21,9 +21,12 @@ public class RoleModel {
     private Long id;
 
     @Column(name = "name")
-    private String name;
+    private String name = "USER";
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleModel")
-    List<UserModel> userModelList = new ArrayList<>();
+    @OneToMany( mappedBy = "roleModel")
+    List<UserModel> userModelList;
+
+
+
 
 }

@@ -12,46 +12,46 @@
                 <div class="card">
                     <div class="card-header">Rejestracja</div>
                     <div class="card-body">
-                        <form name="my-form" action='<c:url value="/register"/>' method="post">
+                        <form name="my-form" action='<c:url value="/editUser/${userModel.id}"/>' method="post">
                             <div class="form-group row" >
                                 <label for="login" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="login" class="form-control" name="login">
-                                    </div>
+                                    <input type="text" id="login" class="form-control" name="${userModel.login}">
+                                </div>
                             </div>
                             <p></p>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Hasło</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password">
+                                    <input type="password" id="password" class="form-control" name="${userModel.password}">
                                 </div>
                             </div>
                             <p></p>
                             <div class="form-group row" >
                                 <label for="full_name" class="col-md-4 col-form-label text-md-right">Imię</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="full_name" class="form-control" name="name">
+                                    <input type="text" id="full_name" class="form-control" name="${userModel.name}">
                                 </div>
                             </div>
                             <p></p>
                             <div class="form-group row">
                                 <label for="user_name" class="col-md-4 col-form-label text-md-right">Nazwisko</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="user_name" class="form-control" name="surname">
+                                    <input type="text" id="user_name" class="form-control" name="${userModel.surname}">
                                 </div>
                             </div>
                             <p></p>
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-mail</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email">
+                                    <input type="text" id="email_address" class="form-control" name="${userModel.email}">
                                 </div>
                             </div>
                             <p></p>
                             <div class="form-group row">
                                 <label for="phone_number" class="col-md-4 col-form-label text-md-right">Numer telefonu</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="phone_number" class="form-control" name="phoneNumber">
+                                    <input type="text" id="phone_number" class="form-control" name="${userModel.phoneNumber}">
                                 </div>
                             </div>
                             <p></p>
@@ -69,7 +69,7 @@
                             <div class="form-group row"> <!-- Date input -->
                                 <label  for="date" class="col-md-4 col-form-label text-md-right">Data urodzenia</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="date" name="birthdayDate" placeholder="MM/DD/YYY" type="datetime-local"/>
+                                    <input class="form-control" id="date" name="${userModel.birthdayDate}" placeholder="MM/DD/YYY" type="datetime-local"/>
                                 </div>
                             </div>
                             <p></p>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -15,33 +16,45 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
-
     @GetMapping("/users")
     public  String getUserList(Model model){
         List<UserModel> userModelList = userService.getUserList();
         model.addAttribute("userModel", userModelList);
         return "user/users";
-
     }
 
-    @GetMapping("/addUser")
-    public String getAddUser(){
-        return "auth/register";
+//    @GetMapping("/register")
+//    public String getAddUser(){
+//        return "auth/register";
+//    }
+
+    @PostMapping("/register")
+    public RedirectView postAddUser(UserModel userModel) {
+        try {
+            userService.addUser(userModel);
+        } catch (Exception e) {
+            return new RedirectView("/re-register");
+        }
+        return new RedirectView("/");
     }
 
-    @PostMapping("/addUser")
-    public RedirectView postAddUser(UserModel userModel){
-        userService.addUser(userModel);
-        return new RedirectView("home/index");
+    @PostMapping("/re-register")
+    public RedirectView postAddUserAgain(UserModel userModel){
+        try {
+            userService.addUser(userModel);
+        }catch(Exception e) {
+            return new RedirectView("/re-register");
+        }
+        return new RedirectView("/");
     }
+
 
     @GetMapping("/editUser/{id}")
     public String getEditUser(@PathVariable("id")Long id, Model model){
         UserModel userModel = userService.findUserById(id);
         model.addAttribute("userModel",userModel);
-        return "auth/editUser";
+        return "users/editUser";
         //TODO Stworzyc strone
     }
     @PostMapping("/editUser/{id}")
