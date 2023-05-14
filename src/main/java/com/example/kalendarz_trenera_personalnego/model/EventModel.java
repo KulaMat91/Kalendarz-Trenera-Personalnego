@@ -26,7 +26,7 @@ public class EventModel {
 
     @Column(name = "add_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date addDate;
+    private Date addDate;  // aby wpisywało date private LocalDateTime created = LocalDateTime.now();
 
     @Column(name = "event_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")  //TODO przesyłanie z godziną?

@@ -22,7 +22,7 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "login")
+    @Column(name = "login", unique = true)
     private String login;
 
     @Column(name = "password")
@@ -35,7 +35,7 @@ public class UserModel {
     private String surname;
 
     @Email
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column (name = "phone_number")
@@ -48,9 +48,13 @@ public class UserModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdayDate;
 
-    @ManyToOne
+    @Column(name= "role")
+    private String role="USER";
+
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private RoleModel roleModel;   //TODO nadawanie defaultowo roli podczas rejestracji
+
 
     @ManyToMany
     @JoinTable(
