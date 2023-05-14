@@ -1,5 +1,6 @@
 package com.example.kalendarz_trenera_personalnego.service;
 
+import com.example.kalendarz_trenera_personalnego.dto.EventDto;
 import com.example.kalendarz_trenera_personalnego.model.EventModel;
 import com.example.kalendarz_trenera_personalnego.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
