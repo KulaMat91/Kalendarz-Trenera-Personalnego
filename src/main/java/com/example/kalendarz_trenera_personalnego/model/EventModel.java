@@ -37,8 +37,8 @@ public class EventModel {
     @Column(name = "number_of_slots")
     private Integer numberOfSlots;
 
-    @Lob
-    private byte[] picture;
+    @Column(name = "picture",columnDefinition = "MEDIUMTEXT")
+    private String picture;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "eventModelList")
     private List<UserModel> userList = new ArrayList<>();
@@ -50,10 +50,18 @@ public class EventModel {
         this.addDate = new Date();
         this.title = eventDto.getTitle();
         this.description = eventDto.getDescription();
-        this.picture = eventDto.getPicture().getBytes();
+        this.picture = Base64.getEncoder().encodeToString(eventDto.getPicture().getBytes());
         this.numberOfSlots = eventDto.getNumberOfSlots();
         this.eventDate = eventDto.getEventDate();
     }
+    public void setEventModel(EventDto eventDto) throws IOException {
+        this.title = eventDto.getTitle();
+        this.description = eventDto.getDescription();
+        this.picture = Base64.getEncoder().encodeToString(eventDto.getPicture().getBytes());
+        this.numberOfSlots = eventDto.getNumberOfSlots();
+        this.eventDate = eventDto.getEventDate();
+    }
+
 
 
 

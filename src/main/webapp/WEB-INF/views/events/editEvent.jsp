@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">Edytowanie wydarzenia</div>
                     <div class="card-body">
-                        <form method="post" name="my-form" onsubmit="return validform()" action='<c:url value="/addEvent/${eventModel.id}"/>'>
+                        <form method="post" name="my-form" enctype="multipart/form-data" onsubmit="return validform()" action='<c:url value="/editEvent/${eventModel.id}"/>'>
                             <div class="form-group row" >
                                 <label for="title" class="col-md-4 col-form-label text-md-right">Tytuł</label>
                                 <div class="col-md-6">
@@ -52,7 +52,7 @@
                                                         <div class="form-group row">
                                                             <label for="picture" class="col-md-4 col-form-label text-md-right">Dodaj zdjęcie</label>
                                                             <div class="col-md-6">
-                                                                <input type="file" id="picture" class="form-control" name="picture" accept="image/jpeg,audio/*,.gif">
+                                                                <input type="file" id="picture" class="form-control" name="picture" accept="image/*,audio/*,.gif">
                                                             </div>
                                                         </div>
                                                         <p></p>
