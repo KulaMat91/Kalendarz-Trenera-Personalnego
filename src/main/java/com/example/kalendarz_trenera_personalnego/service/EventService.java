@@ -38,6 +38,9 @@ public class EventService {
     public void removeEvent(Long id) {
         repo.deleteById(id);
     }
+//    public void singUpEvent(Long id){
+//        repo.save()
+//    }
 
     public EventModel getFirstEvent(){
         List<EventModel> eventList = repo.findAll();

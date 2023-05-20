@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dodawanie wydarzenia</div>
+                    <div class="card-header">Edytowanie wydarzenia</div>
                     <div class="card-body">
                         <form method="post" name="my-form" onsubmit="return validform()" action='<c:url value="/addEvent/${eventModel.id}"/>'>
                             <div class="form-group row" >
@@ -23,7 +23,7 @@
                             <div class="form-group row">
                                 <label for="description" class="col-md-4 col-form-label text-md-right">Opis wydarzenia</label>
                                 <div class="col-md-6">
-                                    <textarea type="text" id="description" class="form-control"  name="${eventModel.description}"></textarea>
+                                    <textarea type="text" id="description" class="form-control" name="description" >${eventModel.description}</textarea>
                                 </div>
                             </div>
                             <p></p>
@@ -57,7 +57,7 @@
                                                         </div>
                                                         <p></p>
                             <div class="col-md-6 offset-md-4">
-                                <input class="btn btn-warning pull-left mb-2" type="submit" value="Dodaj event" id="searchButton">
+                                <input class="btn btn-warning pull-left mb-2" type="submit" value="Zapisz zmiany" id="searchButton">
                             </div>
                         </form>
                     </div>

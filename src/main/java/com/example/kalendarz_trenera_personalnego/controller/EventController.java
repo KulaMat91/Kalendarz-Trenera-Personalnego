@@ -38,6 +38,12 @@ public class EventController {
         eventService.addEvent(eventModel);
         return new RedirectView("/eventsList");
     }
+//    @PostMapping("/singUp/{id}")
+//    public RedirectView postSingUpToEvent(@PathVariable("id") Long id, Model model){
+//        eventService.
+//    }
+
+
 
     @GetMapping("/editEvent/{id}")
     public String getEditEvent(@PathVariable("id") Long id, Model model) {
@@ -53,11 +59,17 @@ public class EventController {
         return new RedirectView("/eventsList");
     }
 
-    @PostMapping("/editEvent/{id}")
+    @PostMapping("/deleteEvent/{id}")
     public RedirectView removeEvent(@PathVariable("id") Long id) {
         eventService.removeEvent(id);
         return new RedirectView("/eventsList");
     }
 
+    @GetMapping("/deleteEvent/{id}")
+    public String getRemoveEvent(@PathVariable("id") Long id, Model model) {
+        EventModel eventModel = eventService.getEventById(id);
+        model.addAttribute("eventModel", eventModel);
+        return "events/deleteEvent";
+    }
 
 }
