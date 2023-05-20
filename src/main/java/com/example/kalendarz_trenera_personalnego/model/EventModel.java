@@ -40,7 +40,6 @@ public class EventModel {
     @Lob
     private byte[] picture;
 
-
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "eventModelList")
     private List<UserModel> userList = new ArrayList<>();
 
@@ -54,7 +53,6 @@ public class EventModel {
         this.picture = eventDto.getPicture().getBytes();
         this.numberOfSlots = eventDto.getNumberOfSlots();
         this.eventDate = eventDto.getEventDate();
-
     }
 
 

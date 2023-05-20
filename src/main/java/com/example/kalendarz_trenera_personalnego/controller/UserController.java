@@ -16,6 +16,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
+
     private final UserService userService;
     @GetMapping("/users")
     public  String getUserList(Model model){
@@ -48,6 +49,7 @@ public class UserController {
         }
         return new RedirectView("/");
     }
+
 
 
     @GetMapping("/editUser/{id}")
