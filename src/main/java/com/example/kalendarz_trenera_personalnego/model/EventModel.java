@@ -31,8 +31,8 @@ public class EventModel {
     private Date addDate;  // aby wpisywało date private LocalDateTime created = LocalDateTime.now();
 
     @Column(name = "event_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")  //TODO przesyłanie z godziną?
-    private Date eventDate;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")  //TODO przesyłanie z godziną?
+    private LocalDateTime eventDate;
 
     @Column(name = "number_of_slots")
     private Integer numberOfSlots;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -18,8 +19,8 @@ public class EventDto {
 
     private String description;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date eventDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime eventDate;
 
     private Integer numberOfSlots;
 
