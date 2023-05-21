@@ -2,6 +2,7 @@ package com.example.kalendarz_trenera_personalnego.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthController {
@@ -10,6 +11,11 @@ public class AuthController {
     public String getLogin() {
         return "auth/login";
     }
+
+//    @PostMapping("/login")
+//    public String login() {
+//        return "events/eventsList";
+//    }
 
     @GetMapping("/register")
     public String getRegister() {
