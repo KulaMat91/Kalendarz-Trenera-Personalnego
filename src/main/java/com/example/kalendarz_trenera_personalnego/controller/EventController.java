@@ -28,7 +28,6 @@ public class EventController {
         return "events/eventsList";
     }
 
-
     @GetMapping("/addEvent")
     public String getAddEvent() {
         return "/events/addNewEvent";

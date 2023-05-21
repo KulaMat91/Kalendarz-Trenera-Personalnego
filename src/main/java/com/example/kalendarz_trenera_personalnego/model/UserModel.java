@@ -1,5 +1,6 @@
 package com.example.kalendarz_trenera_personalnego.model;
 
+import com.example.kalendarz_trenera_personalnego.api.UserRole;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -48,10 +49,8 @@ public class UserModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdayDate;
 
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id")
-    private RoleModel roleModel;   //TODO nadawanie defaultowo roli podczas rejestracji
-
+    @Column(name = "user_role")
+    private UserRole userRole = UserRole.USER;
 
     @ManyToMany
     @JoinTable(
@@ -63,8 +62,5 @@ public class UserModel {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userModel")
     private List<OpinionModel> opinionModelList = new ArrayList<>();
-
-
-
 
 }
