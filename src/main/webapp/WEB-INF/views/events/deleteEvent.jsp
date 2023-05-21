@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="description" class="col-md-4 col-form-label text-md-right">Opis wydarzenia</label>
             <div class="col-md-6">
-                <textarea type="text" id="description" class="form-control"  name="${eventModel.description}"></textarea>
+                <textarea type="text" id="description" class="form-control"  name="description">${eventModel.description}</textarea>
             </div>
         </div>
         <p></p>

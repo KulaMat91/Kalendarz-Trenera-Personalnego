@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -23,6 +24,7 @@ public class EventController {
     public String getEventList(Model model) {
         List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
         model.addAttribute("eventModel", eventModelList);
+//        model.addAttribute("picture", Base64.getEncoder().encodeToString(eventModelList.get(0).getPicture()));
         return "events/eventsList";
     }
 
@@ -44,18 +46,18 @@ public class EventController {
 //    }
 
 
-
     @GetMapping("/editEvent/{id}")
     public String getEditEvent(@PathVariable("id") Long id, Model model) {
         EventModel eventModel = eventService.getEventById(id);
         model.addAttribute("eventModel", eventModel);
         return "events/editEvent";
-        //TODO Stworzyc strone
     }
 
-    @PostMapping("/addEvent/{id}")
-    public RedirectView postEditEvent(@PathVariable("id") Long id, EventModel editEventModel) {
-        eventService.saveEditEvent(editEventModel);
+    @PostMapping("/editEvent/{id}")
+    public RedirectView postEditEvent(@PathVariable("id") Long id, EventDto eventDto) throws IOException {
+        EventModel eventModel = eventService.getEventById(id);
+        eventModel.setEventModel(eventDto);
+        eventService.saveEditEvent(eventModel);
         return new RedirectView("/eventsList");
     }
 

@@ -13,13 +13,13 @@
             <!-- Heading Row-->
              <c:forEach items="${eventModel}" var="event">
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-6"><img src="data:image/*;base64,${Base64.getEncoder().encodeToString(event.picture)}" /></div>
+                <div class="col-lg-6"><img src="data:image/*;base64,${event.picture}" width="550" height="350" float="right"/></div>
 
                 <div class="col-lg-6">
                     <h1 class="font-weight-light">${event.title}</h1>
                     <p>${event.description}</p>
-                    <p>${event.eventDate}</p>
-                    <p>${event.numberOfSlots}</p>
+                    <p>Data wydarzenia: ${event.eventDate}</p>
+                    <p>Ilość dostępnych miejsc: ${event.numberOfSlots}</p>
                     <a class="btn btn-primary" href='<c:url value="/editEvent/${event.id}"/>'>Edytuj</a>
                     <a class="btn btn-danger" href='<c:url value="/deleteEvent/${event.id}"/>'>Usuń</a>
                     <a class="btn btn-success" href=''>Zapisz się</a>
