@@ -11,15 +11,9 @@ public class AuthController {
         return "auth/login";
     }
 
-    @GetMapping("/register")
-    public String getRegister() {
-        return "auth/register";
-    }
 
-    @GetMapping("/re-register")
-    public String getRegisterAgain() {
-        return "auth/re-register";
-    }
+
+
 
     @GetMapping("/shop")
     public String getShop() {

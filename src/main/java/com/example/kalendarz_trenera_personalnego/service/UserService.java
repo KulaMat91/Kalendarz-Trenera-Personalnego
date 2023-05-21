@@ -25,7 +25,6 @@ public class UserService {
         return repo.findAll();
     }
 
-
     public UserModel findUserById(Long id) {
         return repo.findById(id).orElse(null);
     }

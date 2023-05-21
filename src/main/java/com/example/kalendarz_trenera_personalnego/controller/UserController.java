@@ -30,25 +30,7 @@ public class UserController {
 //        return "auth/register";
 //    }
 
-    @PostMapping("/register")
-    public RedirectView postAddUser(UserModel userModel) {
-        try {
-            userService.addUser(userModel);
-        } catch (Exception e) {
-            return new RedirectView("/re-register");
-        }
-        return new RedirectView("/");
-    }
 
-    @PostMapping("/re-register")
-    public RedirectView postAddUserAgain(UserModel userModel){
-        try {
-            userService.addUser(userModel);
-        }catch(Exception e) {
-            return new RedirectView("/re-register");
-        }
-        return new RedirectView("/");
-    }
 
 
 
