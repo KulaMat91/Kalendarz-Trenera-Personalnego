@@ -16,14 +16,14 @@
                                                         <div class="form-group row">
                                                                 <label for="full_name" class="col-md-4 col-form-label text-md-right">Login</label>
                                                                 <div class="col-md-6">
-                                                                        <input type="text" id="full_name" class="form-control" name="login">
+                                                                        <input type="text" id="full_name" class="form-control" name="username">
                                                                 </div>
                                                         </div>
                                                         <p></p>
                                                         <div class="form-group row">
                                                                 <label for="user_name" class="col-md-4 col-form-label text-md-right">Hasło</label>
                                                                 <div class="col-md-6">
-                                                                        <input type="text" id="user_name" class="form-control" name="password">
+                                                                <input type="password" id="user_name" class="form-control" name="password">
                                                                 </div>
                                                         </div>
                                                         <p></p>

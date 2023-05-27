@@ -8,7 +8,7 @@ public class ApplicationContext {
 
     public static void setActiveUser(UserModel userModel) {
         activeUser = new ActiveUser(
-                userModel.getLogin(),
+                userModel.getUsername(),
                 userModel.getName(),
                 userModel.getUserRole()
         );

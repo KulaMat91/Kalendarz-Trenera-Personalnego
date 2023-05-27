@@ -16,7 +16,7 @@
                             <div class="form-group row" >
                                 <label for="login" class="col-md-4 col-form-label text-md-right">Login</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="login" class="form-control" name="login">
+                                    <input type="text" id="login" class="form-control" name="username">
                                     </div>
                             </div>
                             <p></p>
