@@ -3,8 +3,9 @@
 <jsp:useBean id="now" class="java.util.Date"/>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../dynamic/header.jspf"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
-        <!-- Page Content-->
+<!-- Page Content-->
         <div class="container px-4 px-lg-5">
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
@@ -20,10 +21,14 @@
                     <p>${event.description}</p>
                     <p>Data wydarzenia: ${event.eventDate}</p>
                     <p>Ilość dostępnych miejsc: ${event.numberOfSlots}</p>
-                    <a class="btn btn-primary" href='<c:url value="/editEvent/${event.id}"/>'>Edytuj</a>
-                    <a class="btn btn-danger" href='<c:url value="/deleteEvent/${event.id}"/>'>Usuń</a>
-                    <a class="btn btn-success" href=''>Zapisz się</a>
-                    <a class="btn btn-secondary" href=''>Skomentuj</a>
+                    <c:if test="${userModel.userRole == 'ADMIN'}">
+                        <a class="btn btn-primary" href='<c:url value="/editEvent/${event.id}"/>'>Edytuj</a>
+                        <a class="btn btn-danger" href='<c:url value="/deleteEvent/${event.id}"/>'>Usuń</a>
+                    </c:if>
+                    <form method="post" action='<c:url value="/signUp/${event.id}"/>'>
+                        <input class="btn btn-success" type="submit" value="Zapisz się" id="searchButton">
+                    </form>
+                        <%--<a class="btn btn-secondary" href=''>Skomentuj</a>--%>
                 </div>
             </div>
              </c:forEach>

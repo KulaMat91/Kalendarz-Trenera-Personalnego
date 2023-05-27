@@ -28,6 +28,8 @@ public class Auth extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .anyRequest()
                 .authenticated()
+//                .antMatchers("/eventsList")
+//                .hasAnyAuthority("USER", "ADMIN")
                 .and()
                 .csrf().disable() // wyłączenie zabezpieczenia w cleu użycia postmana
                 .headers().frameOptions().disable()

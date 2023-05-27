@@ -2,6 +2,7 @@ package com.example.kalendarz_trenera_personalnego.service;
 
 import com.example.kalendarz_trenera_personalnego.dto.EventDto;
 import com.example.kalendarz_trenera_personalnego.model.EventModel;
+import com.example.kalendarz_trenera_personalnego.model.UserModel;
 import com.example.kalendarz_trenera_personalnego.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,8 @@ public class EventService {
     public void removeEvent(Long id) {
         repo.deleteById(id);
     }
-//    public void singUpEvent(Long id){
+
+//    public void signUpEvent(Long id, UserModel userModel){
 //        repo.save()
 //    }
 

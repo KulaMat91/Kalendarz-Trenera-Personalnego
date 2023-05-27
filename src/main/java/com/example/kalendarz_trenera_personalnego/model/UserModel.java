@@ -52,7 +52,7 @@ public class UserModel implements UserDetails {
     private Date birthdayDate;
 
     @Column(name = "user_role")
-    private UserRole userRole = UserRole.USER;
+    private UserRole userRole = UserRole.ADMIN;
 
     private boolean accountNonLocked;
 

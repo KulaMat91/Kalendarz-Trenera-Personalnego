@@ -2,8 +2,11 @@ package com.example.kalendarz_trenera_personalnego.controller;
 
 import com.example.kalendarz_trenera_personalnego.dto.EventDto;
 import com.example.kalendarz_trenera_personalnego.model.EventModel;
+import com.example.kalendarz_trenera_personalnego.model.UserModel;
 import com.example.kalendarz_trenera_personalnego.service.EventService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +23,13 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
 
+
     @GetMapping("/eventsList")
     public String getEventList(Model model) {
         List<EventModel> eventModelList = eventService.getEventListOrderByAddDate();
         model.addAttribute("eventModel", eventModelList);
-//        model.addAttribute("picture", Base64.getEncoder().encodeToString(eventModelList.get(0).getPicture()));
+        UserModel userModel = (UserModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userModel", userModel);
         return "events/eventsList";
     }
 
@@ -39,10 +44,15 @@ public class EventController {
         eventService.addEvent(eventModel);
         return new RedirectView("/eventsList");
     }
-//    @PostMapping("/singUp/{id}")
-//    public RedirectView postSingUpToEvent(@PathVariable("id") Long id, Model model){
-//        eventService.
-//    }
+    @PostMapping("/signUp/{id}")
+    public RedirectView postSingUpToEvent(@PathVariable("id") Long id, Model model){
+        EventModel eventModel = eventService.getEventById(id);
+        List<UserModel> userModelList = eventModel.getUserList();
+
+        eventModel.getUserList().add((UserModel) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        eventService.saveEditEvent(eventModel);
+        return new RedirectView("/");
+    }
 
 
     @GetMapping("/editEvent/{id}")
